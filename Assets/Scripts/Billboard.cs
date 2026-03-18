@@ -6,20 +6,12 @@ public class Billboard : MonoBehaviour
 
     private void Start()
     {
-        // Find the main camera in the scene and store its transform
-        mainCameraTransform = Camera.main.transform;
-
-        // Optional: If you need to specify a different camera,
-        // you can make the variable public and assign it in the Inspector.
-        // public Transform targetCamera;
-        // mainCameraTransform = targetCamera ?? Camera.main.transform;
+        mainCameraTransform = Camera.main.transform; // finds the main camera in the scene and store its transform
     }
 
     private void LateUpdate()
     {
-        // Make the UI element look at the camera position
-        // The negative Z-axis is typically considered "forward" for Unity UI elements in world space.
         transform.LookAt(transform.position + mainCameraTransform.rotation * Vector3.forward,
-                         mainCameraTransform.rotation * Vector3.up);
+                         mainCameraTransform.rotation * Vector3.up); // make the UI element look at the camera position
     }
 }
